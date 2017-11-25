@@ -1,0 +1,26 @@
+{
+  "name": "kitty-scripts",
+  "version": "1.0.0",
+  "description": "scripts to interact with cryptokitties api",
+  "main": "index.js",
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "qs": "^6.5.1",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js | jq"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moodysalem/kitty-scripts.git"
+  },
+  "author": "moody salem",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moodysalem/kitty-scripts/issues"
+  },
+  "homepage": "https://github.com/moodysalem/kitty-scripts#readme"
+}
