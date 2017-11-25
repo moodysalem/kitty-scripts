@@ -29,8 +29,9 @@ function print(obj) {
   console.log(JSON.stringify(obj));
 }
 
-// get all sales that are below 0.003 eth
+// get all sales of gen 0/1 kitties that are below 0.003 eth
 getAllAuctions({ type: 'sale' })
+  .then(auctions => auctions.filter(({ kitty: { generation } }) => generation < 2))
   .then(auctions => auctions.filter(auction => fromWei(auction.current_price) < 0.003))
   .then(print)
   .catch(error => console.error(error));
