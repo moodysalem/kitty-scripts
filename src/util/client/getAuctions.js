@@ -20,16 +20,23 @@ export function getAuctions(params) {
     );
 }
 
-export async function getAllAuctions({ type = 'sale', status = 'open', ...rest }) {
-  const { total } = await getAuctions({ ...rest, limit: 0, offset: 0, type, status });
+export async function getAllAuctions({ status = 'open', ...rest } = {}) {
+  const { total } = await getAuctions({ ...rest, limit: 0, offset: 0, status });
 
   // fetch all the expected pages of kitties
   const promises = _.map(
     _.range(0, total, 1000),
-    offset => getAuctions({ ...rest, limit: 1000, offset, type, status })
+    offset => getAuctions({ ...rest, limit: 1000, offset, status })
       .then(({ auctions }) => auctions)
   );
 
+
   // return all the page results
-  return _.flatten(await Promise.all(promises));
+  const result = _.flatten(await Promise.all(promises));
+
+  if (result.length !== total) {
+    throw new Error('not expected number of results');
+  }
+
+  return result;
 }
