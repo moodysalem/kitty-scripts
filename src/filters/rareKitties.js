@@ -4,6 +4,10 @@ import rarities from '../json/rarities';
 
 const sum = arr => _.reduce(arr, (memo, num) => memo + num, 0);
 
+function kittyRarity({ cattributes }) {
+  return sum(cattributes.map(cattribute => rarities[ cattribute ] || 1));
+}
+
 // get all sales of gen 0 kitties that are below 0.003 eth
 export default async function () {
   const auctions = await getAllAuctions({ type: 'sale' });
@@ -13,14 +17,14 @@ export default async function () {
     auctions.map(({ kitty: { id } }) => getKitty(id))
   );
 
-  const scoredKitties = _.map(
-    kitties,
-    ({ cattributes, ...rest }) => ({
-      cattributes,
-      ...rest,
-      rarity: sum(cattributes.map(cattribute => rarities[ cattribute ] || 1))
-    })
-  );
-
-  return _.first(_.sortBy(scoredKitties, ({ rarity }) => rarity), 10).map(({ kittyUrl }) => kittyUrl);
+  return _.chain(kitties)
+    .sortBy(kittyRarity)
+    .first(10)
+    .map(({ kittyUrl, owner: { nickname }, name, children, generation }) => ({
+      name,
+      kittyUrl,
+      owner: nickname,
+      numChildren: children.length,
+      generation
+    }));
 }
