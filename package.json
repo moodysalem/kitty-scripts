@@ -4,14 +4,18 @@
   "description": "scripts to interact with cryptokitties api",
   "main": "index.js",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
     "isomorphic-fetch": "^2.2.1",
+    "jsome": "^2.3.26",
     "qs": "^6.5.1",
     "underscore": "^1.8.3"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js | jq"
+    "cheapGen0Kitties": "node index cheapGen0Kitties",
+    "rareKitties": "node index rareKitties",
+    "refreshKittyCache": "node index getAllKitties"
   },
   "repository": {
     "type": "git",
@@ -22,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/moodysalem/kitty-scripts/issues"
   },
-  "homepage": "https://github.com/moodysalem/kitty-scripts#readme"
+  "homepage": "https://github.com/moodysalem/kitty-scripts#readme",
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+  }
 }
