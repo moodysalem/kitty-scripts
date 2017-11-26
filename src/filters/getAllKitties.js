@@ -1,24 +1,24 @@
-import { getAllAuctions, getKitty } from '../util/client';
-import kittyCache from '../json/kittyCache';
-import _ from 'underscore';
+import { getAllKitties } from '../util/client/getKitties';
+import { getKittyWithCache } from '../util/client/getKittyWithCache';
 
 // refresh the kitty cache
 export default async function getAuctionKitties() {
-  const sales = await getAllAuctions({ type: 'sale' });
-  const sires = await getAllAuctions({ type: 'sire' });
+  const kitties = await getAllKitties();
 
-  const kittyIds = sales.map(({ kitty: { id } }) => id)
-    .concat(sires.map(({ kitty: { id } }) => id));
+  let fetched = 0;
 
-  const kitties = await Promise.all(
-    kittyIds.map(
-      id => getKitty(id).catch(error => null)
-    )
-  );
+  while (kitties.length > 0) {
+    const next = kitties.splice(0, 10);
 
-  const noErrors = kitties.filter(kitty => kitty !== null);
+    await Promise.all(
+      next.map(
+        ({ id }) =>
+          getKittyWithCache(id, false)
+            .then(() => fetched++)
+            .catch(() => null)
+      )
+    );
+  }
 
-  const byId = _.indexBy(noErrors, ({ id }) => id);
-
-  return Object.assign(kittyCache, byId);
+  return { total: kitties.length, fetched };
 }

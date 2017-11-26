@@ -1,5 +1,6 @@
-import { fromWei, getAllAuctions } from '../util/client';
 import _ from 'underscore';
+import { getAllAuctions } from '../util/client/getAuctions';
+import fromWei from '../util/fromWei';
 
 // get all sales of gen 0 kitties that are below 0.003 eth
 export default async function () {

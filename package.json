@@ -13,9 +13,11 @@
     "underscore": "^1.8.3"
   },
   "scripts": {
-    "cheapGen0Kitties": "node index cheapGen0Kitties",
-    "rareKitties": "node index rareKitties",
-    "refreshKittyCache": "node index getAllKitties"
+    "do": "node index",
+    "cheapGen0Kitties": "npm run do -- cheapGen0Kitties",
+    "rareKitties": "npm run do -- rareKitties",
+    "getAllKitties": "npm run do -- getAllKitties",
+    "getCattributeRarities": "npm run do -- getCattributeRarities"
   },
   "repository": {
     "type": "git",

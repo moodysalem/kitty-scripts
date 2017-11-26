@@ -1,5 +1,3 @@
-import jsome from 'jsome';
-
 export default async function ([ node, script, functionName, ...args ]) {
   if (typeof functionName !== 'string') {
     console.log('invalid function name');
@@ -9,5 +7,5 @@ export default async function ([ node, script, functionName, ...args ]) {
   const action = require(`./src/filters/${functionName}`).default;
 
   const result = await action(args);
-  jsome(result);
+  console.log(JSON.stringify(result, null, 2));
 }
