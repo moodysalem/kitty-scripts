@@ -2,10 +2,11 @@ import kittyUrl from './kittyUrl';
 import kittyRarity from './kittyRarity';
 import rarities from '../json/rarities';
 import _ from 'underscore';
+import fromWei from './fromWei';
 
 // parses a full kitty
 export default function humanReadableKitty(kitty) {
-  const { owner: { nickname, address }, cattributes, name, id, children, color, generation } = kitty;
+  const { owner: { nickname, address }, auction: { type, current_price }, cattributes, name, id, children, color, generation } = kitty;
   return {
     id,
     kittyUrl: kittyUrl(id),
@@ -14,6 +15,7 @@ export default function humanReadableKitty(kitty) {
     numChildren: children.length,
     color,
     generation,
+    auction: type ? `${type} for ETH${fromWei(current_price)}` : null,
     cattributes: _.sortBy(cattributes, cattribute => rarities[ cattribute ] || 1).join(', '),
     rarity: kittyRarity(kitty)
   };
