@@ -18,6 +18,7 @@
     "rareKitties": "npm run do -- rareKitties",
     "getAllKitties": "npm run do -- getAllKitties",
     "getBestValueKitties": "npm run do -- getBestValueKitties",
+    "ownerKittiesByRarity": "npm run do -- ownerKittiesByRarity",
     "getCattributeRarities": "npm run do -- getCattributeRarities"
   },
   "repository": {
