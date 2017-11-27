@@ -13,7 +13,7 @@ export default async function getAuctionKitties() {
     await Promise.all(
       next.map(
         ({ id }) =>
-          getKittyWithCache(id, false)
+          getKittyWithCache(id)
             .then(() => fetched++)
             .catch(() => null)
       )
