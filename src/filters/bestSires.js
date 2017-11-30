@@ -5,10 +5,9 @@ import humanReadableKitty from '../util/humanReadableKitty';
 import _ from 'underscore';
 
 export default async function bestSires(kittyId) {
-  const kitty = await
-    getKitty(kittyId);
+  const kitty1 = await getKitty(kittyId);
 
-  const { owner: { address }, cattributes } = kitty;
+  const { owner: { address }, cattributes } = kitty1;
 
   if (typeof kittyId !== 'string' || typeof address !== 'string') {
     throw new Error('failed to get kitty with ID ' + kittyId);
@@ -17,7 +16,7 @@ export default async function bestSires(kittyId) {
   const allKitties = await getAllFullKitties({ owner_wallet_address: address }, true);
 
   return _.chain(allKitties)
-    .filter(kitty2 => canBreed(kitty, kitty2))
+    .filter(kitty2 => canBreed(kitty1, kitty2))
     .sortBy(({ cattributes: cattributes2 }) => _.intersection(cattributes, cattributes2).length)
     .map(kitty2 => ({
       ...humanReadableKitty(kitty2),

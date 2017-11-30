@@ -7,7 +7,7 @@ import _ from 'underscore';
 const kittyCachePath = path.join(__dirname, '..', '..', 'json', 'kittyCache.json');
 const flushCache = _.throttle(
   () => fs.writeFileSync(kittyCachePath, JSON.stringify(kittyCache)),
-  10000
+  1000
 );
 
 const TWENTY_FOUR_HOURS_MS = 1000 * 60 * 60 * 24;
