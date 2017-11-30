@@ -14,11 +14,14 @@ export default async function bestSires(kittyId) {
     throw new Error('failed to get kitty with ID ' + kittyId);
   }
 
-  const allKitties = await getAllFullKitties({ owner_wallet_address: address });
+  const allKitties = await getAllFullKitties({ owner_wallet_address: address }, true);
 
   return _.chain(allKitties)
     .filter(kitty2 => canBreed(kitty, kitty2))
-    .sortBy(({ cattributes: cattributes2 }) => _.intersection(cattributes, cattributes2))
-    .map(humanReadableKitty)
+    .sortBy(({ cattributes: cattributes2 }) => _.intersection(cattributes, cattributes2).length)
+    .map(kitty2 => ({
+      ...humanReadableKitty(kitty2),
+      numSharedAttributes: _.intersection(cattributes, kitty2.cattributes).length
+    }))
     .value();
 }
