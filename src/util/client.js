@@ -3,6 +3,8 @@ import PQueue from 'p-queue';
 
 const API_URL = `https://api.cryptokitties.co`;
 
+export const MAX_PAGE_SIZE = 100;
+
 // only 25 requests at a time
 const Q = new PQueue({ concurrency: 25 });
 

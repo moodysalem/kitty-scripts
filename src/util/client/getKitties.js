@@ -1,12 +1,10 @@
 import qs from 'qs';
 import _ from 'underscore';
-import { callApi } from '../client';
+import { callApi, MAX_PAGE_SIZE } from '../client';
 
 export function getKitties(params) {
   return callApi(`/kitties?${qs.stringify(params)}`);
 }
-
-const MAX_PAGE_SIZE = 100;
 
 export async function getAllKitties(params) {
   const { total } = await getKitties({ ...params, limit: 1, offset: 0 });

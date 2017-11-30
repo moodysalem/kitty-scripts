@@ -1,7 +1,7 @@
 import qs from 'qs';
 import kittyUrl from '../kittyUrl';
 import _ from 'underscore';
-import { callApi } from '../client';
+import { callApi, MAX_PAGE_SIZE } from '../client';
 
 export function getAuctions(params) {
   return callApi(`/auctions?${qs.stringify(params)}`)
@@ -19,8 +19,6 @@ export function getAuctions(params) {
         })
     );
 }
-
-const MAX_PAGE_SIZE = 100;
 
 export async function getAllAuctions({ status = 'open', ...rest } = {}) {
   const { total } = await getAuctions({ ...rest, limit: 0, offset: 0, status });
