@@ -1,55 +1,218 @@
-{
-  "kittencream": 6410,
-  "simple": 1951,
-  "strawberry": 2762,
-  "totesbasic": 6431,
-  "sphynx": 2454,
-  "tongue": 1326,
-  "lemonade": 1998,
-  "greymatter": 2581,
-  "orangesoda": 2339,
-  "soserious": 3300,
-  "granitegrey": 5830,
-  "laperm": 1124,
-  "thicccbrowz": 4212,
-  "coffee": 2076,
-  "sizzurp": 2680,
-  "happygokitty": 3266,
-  "luckystripe": 4192,
-  "otaku": 323,
-  "swampgreen": 2137,
-  "aquamarine": 2365,
-  "ragamuffin": 2843,
-  "calicool": 905,
-  "raisedbrow": 1826,
-  "royalpurple": 2441,
-  "topaz": 2474,
-  "crazy": 3820,
-  "pouty": 3141,
-  "salmon": 1811,
-  "himalayan": 3267,
-  "tigerpunk": 639,
-  "munchkin": 2530,
-  "mintgreen": 2437,
-  "shadowgrey": 2089,
-  "chocolate": 2350,
-  "cloudwhite": 1024,
-  "wingtips": 30,
-  "emeraldgreen": 67,
-  "skyblue": 433,
-  "chestnut": 1051,
-  "beard": 717,
-  "barkbrown": 889,
-  "cymric": 115,
-  "limegreen": 615,
-  "fabulous": 168,
-  "mauveover": 120,
-  "dali": 443,
-  "saycheese": 139,
-  "spock": 59,
-  "bubblegum": 309,
-  "bloodred": 17,
-  "scarlet": 8,
-  "peach": 4,
-  "jaguar": 103
-}
+[
+  {
+    "count": 3,
+    "attribute": "chartreux"
+  },
+  {
+    "count": 5,
+    "attribute": "peach"
+  },
+  {
+    "count": 12,
+    "attribute": "scarlet"
+  },
+  {
+    "count": 31,
+    "attribute": "bloodred"
+  },
+  {
+    "count": 32,
+    "attribute": "wingtips"
+  },
+  {
+    "count": 96,
+    "attribute": "emeraldgreen"
+  },
+  {
+    "count": 98,
+    "attribute": "spock"
+  },
+  {
+    "count": 110,
+    "attribute": "jaguar"
+  },
+  {
+    "count": 176,
+    "attribute": "cymric"
+  },
+  {
+    "count": 186,
+    "attribute": "fabulous"
+  },
+  {
+    "count": 190,
+    "attribute": "mauveover"
+  },
+  {
+    "count": 213,
+    "attribute": "saycheese"
+  },
+  {
+    "count": 354,
+    "attribute": "bubblegum"
+  },
+  {
+    "count": 366,
+    "attribute": "otaku"
+  },
+  {
+    "count": 505,
+    "attribute": "dali"
+  },
+  {
+    "count": 509,
+    "attribute": "skyblue"
+  },
+  {
+    "count": 703,
+    "attribute": "limegreen"
+  },
+  {
+    "count": 709,
+    "attribute": "tigerpunk"
+  },
+  {
+    "count": 842,
+    "attribute": "beard"
+  },
+  {
+    "count": 1030,
+    "attribute": "calicool"
+  },
+  {
+    "count": 1044,
+    "attribute": "barkbrown"
+  },
+  {
+    "count": 1159,
+    "attribute": "cloudwhite"
+  },
+  {
+    "count": 1232,
+    "attribute": "chestnut"
+  },
+  {
+    "count": 1271,
+    "attribute": "laperm"
+  },
+  {
+    "count": 1539,
+    "attribute": "tongue"
+  },
+  {
+    "count": 2041,
+    "attribute": "salmon"
+  },
+  {
+    "count": 2125,
+    "attribute": "raisedbrow"
+  },
+  {
+    "count": 2294,
+    "attribute": "simple"
+  },
+  {
+    "count": 2309,
+    "attribute": "coffee"
+  },
+  {
+    "count": 2318,
+    "attribute": "lemonade"
+  },
+  {
+    "count": 2343,
+    "attribute": "shadowgrey"
+  },
+  {
+    "count": 2418,
+    "attribute": "swampgreen"
+  },
+  {
+    "count": 2639,
+    "attribute": "orangesoda"
+  },
+  {
+    "count": 2664,
+    "attribute": "aquamarine"
+  },
+  {
+    "count": 2688,
+    "attribute": "chocolate"
+  },
+  {
+    "count": 2756,
+    "attribute": "royalpurple"
+  },
+  {
+    "count": 2759,
+    "attribute": "sphynx"
+  },
+  {
+    "count": 2784,
+    "attribute": "topaz"
+  },
+  {
+    "count": 2825,
+    "attribute": "mintgreen"
+  },
+  {
+    "count": 2837,
+    "attribute": "munchkin"
+  },
+  {
+    "count": 3017,
+    "attribute": "greymatter"
+  },
+  {
+    "count": 3070,
+    "attribute": "sizzurp"
+  },
+  {
+    "count": 3083,
+    "attribute": "strawberry"
+  },
+  {
+    "count": 3304,
+    "attribute": "ragamuffin"
+  },
+  {
+    "count": 3562,
+    "attribute": "pouty"
+  },
+  {
+    "count": 3694,
+    "attribute": "happygokitty"
+  },
+  {
+    "count": 3702,
+    "attribute": "soserious"
+  },
+  {
+    "count": 3706,
+    "attribute": "himalayan"
+  },
+  {
+    "count": 4358,
+    "attribute": "crazy"
+  },
+  {
+    "count": 4693,
+    "attribute": "thicccbrowz"
+  },
+  {
+    "count": 4778,
+    "attribute": "luckystripe"
+  },
+  {
+    "count": 6635,
+    "attribute": "granitegrey"
+  },
+  {
+    "count": 7281,
+    "attribute": "kittencream"
+  },
+  {
+    "count": 7328,
+    "attribute": "totesbasic"
+  }
+]

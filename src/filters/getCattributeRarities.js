@@ -15,5 +15,8 @@ export default async function getCattributeRarities() {
       )
   );
 
-  return rarities;
+  return _.chain(rarities)
+    .map((count, attribute) => ({ count, attribute }))
+    .sortBy(({ count }) => count)
+    .value();
 }
