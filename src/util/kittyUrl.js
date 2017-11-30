@@ -1,5 +1,5 @@
 export default function kittyUrl(id) {
-  return `https://private.cryptokitties.co/kitty/${id}`;
+  return `https://www.cryptokitties.co/kitty/${id}`;
 }
 
 export function withKittyUrl(kitty) {

@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/moodysalem/kitty-scripts#readme",
   "devDependencies": {
-    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "p-queue": "^2.3.0"
   }
 }
