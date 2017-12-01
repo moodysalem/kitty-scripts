@@ -5,7 +5,7 @@ import humanReadableKitty from '../util/humanReadableKitty';
 import { getKittyWithCache } from '../util/client/getKittyWithCache';
 import kittyRarity from '../util/kittyRarity';
 
-export async function getCheapGenKitties(maxGeneration = 2, maxPrice = 0.005, type) {
+export async function getCheapGenKitties(maxGeneration = 3, maxPrice = 0.005, type) {
   const lowGenCheapAuctions = _.filter(
     await getAllAuctions({ type }),
     ({ current_price, kitty: { generation } }) => fromWei(current_price) < maxPrice && generation <= maxGeneration
@@ -27,7 +27,7 @@ export async function getCheapGenKitties(maxGeneration = 2, maxPrice = 0.005, ty
 
 // get all sales of low gen kitties that are below 0.005 eth
 export default async function cheapGen0Kitties(maxGeneration, maxPrice) {
-  return _.chain(await getCheapGenKitties(null, maxGeneration, maxPrice))
+  return _.chain(await getCheapGenKitties(maxGeneration, maxPrice))
   // swap the auction and kitty
     .sortBy(kittyRarity)
     .map(humanReadableKitty)
