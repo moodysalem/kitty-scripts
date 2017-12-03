@@ -35,7 +35,7 @@ export async function getAllAuctions({ status = 'open', ...rest } = {}) {
   const result = _.flatten(await Promise.all(promises));
 
   if (result.length !== total) {
-    throw new Error('not expected number of results');
+    console.error('not expected number of results');
   }
 
   return result;

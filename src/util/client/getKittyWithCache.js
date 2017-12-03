@@ -12,10 +12,10 @@ const flushCache = _.throttle(
 
 const TWENTY_FOUR_HOURS_MS = 1000 * 60 * 60 * 24;
 
-export async function getKittyWithCache(id, refresh = false) {
+export async function getKittyWithCache(id, refresh = false, cacheTTL = TWENTY_FOUR_HOURS_MS * 14) {
   if (!refresh && kittyCache[ '' + id ]) {
     const cacheTimestamp = kittyCache[ '' + id ].cacheTimestamp;
-    if (cacheTimestamp && cacheTimestamp > (new Date()).getTime() - TWENTY_FOUR_HOURS_MS) {
+    if (cacheTimestamp && cacheTimestamp > (new Date()).getTime() - cacheTTL) {
       return kittyCache[ '' + id ];
     }
   }

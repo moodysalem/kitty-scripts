@@ -35,12 +35,13 @@ export default async function bestSires(ownerAddress) {
       sharedAttributes: _.intersection(k1.cattributes, k2.cattributes),
       sharedRarity: kittyRarity({ cattributes: k1.cattributes.concat(k2.cattributes) }),
       readableRarity: readableRarity({ cattributes: k1.cattributes.concat(k2.cattributes) }),
-      generationChild: Math.max(k1.generation, k2.generation) + 1
+      generationChild: Math.max(k1.generation, k2.generation) + 1,
+      generationDifference: Math.abs(k1.generation - k2.generation)
     }))
     .map(({ k1, k2, ...rest }) => ({ k1: humanReadableKitty(k1), k2: humanReadableKitty(k2), ...rest }))
     .sortBy(({ sharedRarity }) => sharedRarity)
-    .sortBy(({ sharedAttributes }) => sharedAttributes.length)
-    .sortBy(({ generationChild }) => generationChild)
+    .sortBy(({ sharedAttributes }) => sharedAttributes.length * -1)
+    .sortBy(({ generationDifference }) => generationDifference)
     .first(5)
     .value();
 }

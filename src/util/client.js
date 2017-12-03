@@ -23,6 +23,8 @@ function retry(action, times = 3) {
     );
 }
 
+const randomWait = () => new Promise(resolve => setTimeout(resolve, Math.random() * 100));
+
 const retryFetch = (...args) => retry(() => fetch(...args), 3);
 
 export function callApi(path, ...args) {
@@ -32,7 +34,8 @@ export function callApi(path, ...args) {
     () => {
       console.log(`fetching: ${url}`);
 
-      return retryFetch(url, ...args)
+      return randomWait()
+        .then(() => retryFetch(url, ...args))
         .then(response => response.json())
         .then(json => {
           console.log(`fetched: ${url}`);
